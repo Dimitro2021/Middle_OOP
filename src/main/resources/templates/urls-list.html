@@ -1,0 +1,29 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+    <title>Urls List</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <section layout:fragment="body" class="py-5">
+        <div th:each="url_my:${urls}" class="col-lg-6">
+            <div class="position-relative mb-5">
+                <div style="text-align: center;" th:text="${url_my.name}"></div>
+                <figcaption> Logo: </figcaption>
+                <img th:src="${url_my.logo}" width="200px" />
+                <figcaption> Icon: </figcaption>
+                <img th:src="${url_my.icon}" width="200px" /><br>
+                <a th:href="${url_my.twitter}" target="_blank">Twitter</a><br>
+                <a th:href="${url_my.facebook}" target="_blank">Facebook</a><br>
+                <p style="color:olivedrab;font-size:20px;">Number of employees:</p>
+                <p th:text="${url_my.employees}"></p>
+                <p style="color:olivedrab;font-size:20px;">Location:</p>
+                <p th:text="${url_my.address}"></p>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
