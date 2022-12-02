@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -27,7 +28,7 @@ public class UrlServiceImpl implements UrlService {
     public Url isIn(String name_url) {
         List<Url> urls = urlRepository.findAll();
         for (int i = 0; i < urls.size(); i++) {
-            if (name_url == urls.get(i).getName_url()){
+            if (Objects.equals(name_url, urls.get(i).getName_url())){
                 return urls.get(i);
             }
         }
